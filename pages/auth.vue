@@ -61,6 +61,9 @@ const socialAlignments = ['horizontal', 'vertical'] as const;
 const brandColor = ref(colors[0]);
 const borderRadius = ref(radii[0]);
 const socialLayout = ref(socialAlignments[0]);
+definePageMeta({
+  layout: 'home',
+});
 </script>
 
 <style scoped></style>

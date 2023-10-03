@@ -2,12 +2,11 @@
 export default defineNuxtConfig({
   css: [
     'primevue/resources/themes/saga-blue/theme.css',
-    'primevue/resources/primevue.css',
   ],
   build: {
     transpile: ['primevue']
   },
-  modules: ['@nuxtjs/supabase', '@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/supabase', '@nuxtjs/tailwindcss', 'nuxt-icon'],
   supabase: {
     redirectOptions: {
       login: '/auth',

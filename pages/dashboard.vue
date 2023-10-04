@@ -11,7 +11,7 @@
         v-for="tool in tools"
         :key="tool.link"
         @click="$router.push(`${tool.link}`)"
-        class="p-4 border-black/5 border flex items-center justify-between hover:shadow-md transition cursor-pointer"
+        class="p-4 border-muted border flex items-center justify-between hover:shadow-md transition cursor-pointer"
       >
         <div class="flex items-center gap-x-4">
           <div :class="`p-2 w-fit rounded-md ${tool.bgColor}`">

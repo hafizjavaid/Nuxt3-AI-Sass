@@ -1,11 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  css: [
-    'primevue/resources/themes/saga-blue/theme.css',
-  ],
-  build: {
-    transpile: ['primevue']
-  },
+
   modules: ['@nuxtjs/supabase', '@nuxtjs/tailwindcss', 'nuxt-icon'],
   supabase: {
     redirectOptions: {
@@ -15,4 +10,16 @@ export default defineNuxtConfig({
       exclude: ['/'],
     },
   },
+  components: [
+    {
+      path: '~/components/ui',
+      extensions: ['.vue'],
+      pathPrefix: false
+    },
+    {
+      path: '~/components',
+      extensions: ['.vue'],
+      pathPrefix: false
+    },
+  ],
 })

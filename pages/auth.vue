@@ -2,11 +2,12 @@
   <div class="w-full min-h-screen flex items-center">
     <div class="max-w-[800px] w-full mx-auto items-center">
       <Card>
-        <template #title>
+        <template #title> </template>
+        <CardTitle>
           <div class="text-center py-4">Welcome to MultiGeniX</div>
-        </template>
+        </CardTitle>
         <!-- <template #subtitle> Card subtitle </template> -->
-        <template #content>
+        <CardContent>
           <Auth
             :appearance="{
               theme: ThemeSupa,
@@ -34,7 +35,7 @@
             show-links
             redirect-to="/"
           />
-        </template>
+        </CardContent>
       </Card>
     </div>
   </div>

@@ -1,52 +1,46 @@
 <template>
   <div class="flex items-center p-4">
-    <MobileSidebar class="md:hidden" />
+    <MobileSidebar  />
     <div class="flex w-full justify-end">
-      <div
+      <!-- <div
         @click="toggle"
         aria-haspopup="true"
         aria-controls="overlay_menu"
         class="border rounded-full text-white bg-slate-600 w-8 h-8 flex justify-center items-center"
-      >
-        <Icon name="lucide:user-circle" />
-      </div>
+      ></div> -->
+      <DropdownMenu>
+        <DropdownMenuTrigger as-child>
+          <Button variant="outline">
+            <Icon name="lucide:user-circle" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent  align="end" class="w-72 left-[100px]">
+          <DropdownMenuLabel>Account Details</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <div class="w-full flex align-items-center p-2 pl-3 ">
+            <Avatar class="mr-2">
+              <AvatarImage
+                v-if="user?.user_metadata.avatar_url"
+                :src="user?.user_metadata.avatar_url"
+              />
+              <AvatarFallback>
+                {{ user?.email?.charAt(0).toUpperCase() }}
+                {{ user?.email?.charAt(1).toUpperCase() }}
+              </AvatarFallback>
+            </Avatar>
 
-      <Menu ref="menu" id="overlay_menu" :popup="true" style="width: 300px">
-        <template #start>
-          <button
-            class="w-full p-link border-b flex align-items-center p-2 pl-3 text-color hover:surface-200 border-noround"
-          >
-            <Avatar
-              class="mr-2"
-              shape="circle"
-              v-if="user?.user_metadata.avatar_url"
-              :image="user?.user_metadata.avatar_url"
-            />
-            <Avatar
-              :label="`${user?.email?.charAt(0).toUpperCase()}${user?.email
-                ?.charAt(1)
-                .toUpperCase()}`"
-              class="mr-2"
-              shape="circle"
-              v-else
-            />
-            <div class="">
+            <div>
               <div class="font-bold">{{ user?.user_metadata.full_name }}</div>
               <div class="text-sm">{{ user?.email }}</div>
             </div>
-          </button>
-        </template>
-
-        <template #end>
-          <Button
-            class="w-full cursor-pointer p-link flex align-items-center p-2 pl-4 text-color hover:surface-200 border-noround"
-            @click="logout"
-          >
-            <Icon name="i-heroicons-arrow-left-on-rectangle" />
+          </div>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem @click="logout">
+            <Icon class="mr-2 h-4 w-4" name="i-heroicons-arrow-left-on-rectangle" />
             <span class="ml-2">Log Out</span>
-          </Button>
-        </template>
-      </Menu>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   </div>
 </template>

@@ -1,11 +1,11 @@
 <template>
   <div>
     <Heading
-      title="Conversation"
-      description="Our most advanced conversation model."
-      icon="lucide:message-square"
-      iconColor="text-violet-500"
-      bgColor="bg-violet-500/10"
+      title="Code Generation"
+      description="Generate code using descriptive text."
+      icon="lucide:code"
+      iconColor="text-green-700"
+      bgColor="bg-green-700/10"
     />
     <div class="px-4 lg:px-8">
       <div>
@@ -17,13 +17,13 @@
             <div class="m-0 p-0">
               <input
                 v-model="prompt"
-                placeholder="How do I calculate the radius of a circle?"
+                placeholder="Simple toggle button using react headlessui/vue?"
                 class="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent w-full"
               />
             </div>
           </div>
           <Button
-            class="col-span-12 lg:col-span-2 w-full"
+            class="col-span-12 lg:col-span-2 w-full shadow-none bg-gray-950 text-white"
             type="submit"
             :disabled="!prompt || isLoading"
           >
@@ -57,8 +57,11 @@
           >
             <UserAvatar v-if="message.role === 'user'" />
             <BotAvatar v-if="message.role === 'assistant'" />
-
-            <p class="text-sm">{{ message.content }}</p>
+            <div
+              v-if="message.content"
+              class="prose-pre:overflow-auto prose-pre:w-full prose-pre:my-2 prose-pre:bg-black/10 prose-pre:p-2 prose-pre:rounded-lg prose-code:bg-black/10 prose-code:rounded-lg prose-code:p-1 text-sm overflow-hidden leading-7"
+              v-html="$mdRenderer.render(message.content)"
+            />
           </div>
         </div>
       </div>
@@ -68,10 +71,10 @@
 
 <script setup lang="ts">
 import { ChatCompletionRequestMessage } from '~/types';
-
 const prompt = ref('');
 const isLoading = ref(false);
 const messages = ref<ChatCompletionRequestMessage[]>([]);
+const { $mdRenderer } = useNuxtApp();
 const submitPrompt = async () => {
   isLoading.value = true;
   const userMessage: ChatCompletionRequestMessage = {
@@ -79,14 +82,14 @@ const submitPrompt = async () => {
     content: prompt.value,
   };
   const newMessages = [...messages.value, userMessage];
-  const { data, error } = await useFetch('/api/conversation', {
+  const { data, error } = await useFetch('/api/code', {
     method: 'POST',
     body: {
       messages: newMessages,
     },
   });
   if (error.value) {
-    console.log(error.value);
+    console.log(error);
   }
   if (data.value) {
     messages.value = [

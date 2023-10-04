@@ -22,4 +22,8 @@ export default defineNuxtConfig({
       pathPrefix: false
     },
   ],
+  runtimeConfig: {
+    openaiKey: '',
+    replicateKey: '',
+  }
 })

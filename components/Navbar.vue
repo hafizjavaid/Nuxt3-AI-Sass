@@ -1,23 +1,17 @@
 <template>
   <div class="flex items-center p-4">
-    <MobileSidebar  />
+    <MobileSidebar />
     <div class="flex w-full justify-end">
-      <!-- <div
-        @click="toggle"
-        aria-haspopup="true"
-        aria-controls="overlay_menu"
-        class="border rounded-full text-white bg-slate-600 w-8 h-8 flex justify-center items-center"
-      ></div> -->
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
           <Button variant="outline">
             <Icon name="lucide:user-circle" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent  align="end" class="w-72 left-[100px]">
+        <DropdownMenuContent align="end" class="w-72 left-[100px]">
           <DropdownMenuLabel>Account Details</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <div class="w-full flex align-items-center p-2 pl-3 ">
+          <div class="w-full flex align-items-center p-2 pl-3">
             <Avatar class="mr-2">
               <AvatarImage
                 v-if="user?.user_metadata.avatar_url"

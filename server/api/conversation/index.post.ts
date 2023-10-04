@@ -1,4 +1,5 @@
 import OpenAI from "openai";
+import { protectedRoute } from '~/server/utils';
 const config = useRuntimeConfig();
 const openai = new OpenAI({
     apiKey: config.openaiKey
@@ -7,6 +8,7 @@ const openai = new OpenAI({
 export default defineEventHandler(async (event) => {
 
     // TODO: Verify and Get User
+    await protectedRoute(event);
     const { messages } = await readBody(event);
     if (!openai.apiKey) {
         throw createError({

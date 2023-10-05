@@ -33,7 +33,7 @@
             <!-- Progress -->
             <Progress v-model="progress" class="w-full" />
           </div>
-          <Button class="w-full" variant="premium">
+          <Button class="w-full" variant="premium" @click="proModal.onOpen">
             Upgrade
             <Icon name="lucide:zap" class="w-4 h-4 ml-2 fill-white" />
           </Button>
@@ -44,6 +44,8 @@
 </template>
 
 <script setup lang="ts">
+const proModal = useProModal();
+
 const currentRoute = useRoute();
 const routes = ref(dashboardRoutes);
 const { data: user, pending } = await useFetch('/api/user', {

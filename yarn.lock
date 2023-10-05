@@ -5568,6 +5568,11 @@ replace-in-file@^6.1.0:
     glob "^7.2.0"
     yargs "^17.2.1"
 
+replicate@^0.20.0:
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/replicate/-/replicate-0.20.0.tgz#2d62519be263e0d670ff186158a4c3b9db868295"
+  integrity sha512-HSIdj0IHhpegy8s3yDMMYCNLPLZqWzScxnFEyxUQcWgbHn3ycEG5Z8uCwt1Bkp6mTOyEmVv2Ot0WRoXzHFuJ6A==
+
 require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"

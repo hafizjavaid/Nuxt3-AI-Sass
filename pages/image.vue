@@ -105,7 +105,6 @@
 </template>
 
 <script setup lang="ts">
-import { ImagesResponseDataInner } from 'openai';
 const prompt = ref('');
 const amount = ref('1');
 const resolution = ref('256x256');
@@ -128,7 +127,7 @@ const submitPrompt = async () => {
     console.log(error.value);
   }
   if (data.value) {
-    photos.value = data.value.map((img: ImagesResponseDataInner) => {
+    photos.value = data.value.map((img) => {
       // This is to avoid Typescript issue as we know we will get the url
       if (img.url) {
         return img.url;

@@ -134,6 +134,7 @@ const submitPrompt = async () => {
       }
       return '';
     });
+    await refreshNuxtData('userData');
   }
   prompt.value = '';
   isLoading.value = false;

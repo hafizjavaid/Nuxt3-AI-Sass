@@ -69,6 +69,7 @@ const submitPrompt = async () => {
   }
   if (data.value) {
     music.value = data.value.audio;
+    await refreshNuxtData('userData');
   }
   prompt.value = '';
   isLoading.value = false;

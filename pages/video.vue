@@ -73,6 +73,7 @@ const submitPrompt = async () => {
   }
   if (data.value) {
     video.value = data.value[0];
+    await refreshNuxtData('userData');
   }
   prompt.value = '';
   isLoading.value = false;

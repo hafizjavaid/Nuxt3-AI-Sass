@@ -97,6 +97,7 @@ const submitPrompt = async () => {
         content: data.value.content as string,
       },
     ];
+    await refreshNuxtData('userData');
   }
   prompt.value = '';
   isLoading.value = false;

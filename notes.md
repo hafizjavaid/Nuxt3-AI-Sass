@@ -10,3 +10,19 @@
     3. Insert database url to .env file
     4. Create Prisma Schema
     5. npx prisma generate + npx prisma db push
+
+6. Do the Api counter ( API + UI )
+7. Do the Pro Modal ( Dynamic Open )
+8. Stripe Integration
+
+
+    1. Stripe Keys with url key as well
+    2. Stripe Util
+    3. Update Prisma
+    4. Absolute URL
+    4. Stripe Basic API
+    5. Stripe Webhook ( API )
+    6. Webhook login and Keys ( Run every time while development )
+    7. User Stripe Status API
+
+9. Settings Page ( Integrate the last step API )

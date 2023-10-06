@@ -44,8 +44,8 @@
 </template>
 
 <script setup lang="ts">
+import { useProModal } from '@/store/useProModal';
 const proModal = useProModal();
-
 const currentRoute = useRoute();
 const routes = ref(dashboardRoutes);
 const { data: user, pending } = await useFetch('/api/user', {

@@ -68,6 +68,8 @@
 
 <script setup lang="ts">
 import { ChatCompletionRequestMessage } from '~/types';
+import { useProModal } from '@/store/useProModal';
+const proModal = useProModal();
 
 const prompt = ref('');
 const isLoading = ref(false);
@@ -86,7 +88,10 @@ const submitPrompt = async () => {
     },
   });
   if (error.value) {
-    console.log(error.value);
+    console.log(error.value.statusMessage);
+    if (error.value.statusCode === 403) {
+      proModal.onOpen();
+    }
   }
   if (data.value) {
     messages.value = [

@@ -105,6 +105,8 @@
 </template>
 
 <script setup lang="ts">
+import { useProModal } from '@/store/useProModal';
+const proModal = useProModal();
 const prompt = ref('');
 const amount = ref('1');
 const resolution = ref('256x256');
@@ -125,6 +127,9 @@ const submitPrompt = async () => {
   });
   if (error.value) {
     console.log(error.value);
+    if (error.value.statusCode === 403) {
+      proModal.onOpen();
+    }
   }
   if (data.value) {
     photos.value = data.value.map((img) => {

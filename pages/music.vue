@@ -51,7 +51,8 @@
 
 <script setup lang="ts">
 import { AudioResponse } from '~/types';
-
+import { useProModal } from '@/store/useProModal';
+const proModal = useProModal();
 const prompt = ref('');
 const isLoading = ref(false);
 const music = ref<string>();
@@ -66,6 +67,9 @@ const submitPrompt = async () => {
   });
   if (error.value) {
     console.log(error);
+    if (error.value.statusCode === 403) {
+      proModal.onOpen();
+    }
   }
   if (data.value) {
     music.value = data.value.audio;

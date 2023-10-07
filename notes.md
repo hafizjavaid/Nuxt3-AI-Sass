@@ -27,3 +27,5 @@
 
 9. Settings Page ( Integrate the last step API ) (Must activate Customer Portal Link)
 10. Don't show modal or counter or upgrade button in sidebar if we are already pro
+11. Don't throw 403 error when I'm pro while I'm out above 5 (max count)
+<!--  -->

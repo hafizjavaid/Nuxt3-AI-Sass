@@ -5,7 +5,7 @@
         <div class="relative h-8 w-8 mr-4">
           <img alt="Logo" src="/logo.svg" />
         </div>
-        <h1 class="text-2xl font-bold">MultiGeniX {{ pending }}</h1>
+        <h1 class="text-2xl font-bold">MultiGeniX</h1>
       </NuxtLink>
       <div class="space-y-1">
         <NuxtLink
@@ -25,11 +25,11 @@
       </div>
     </div>
     <!-- Free Counter -->
-    <div class="px-3 border-t border-b">
+    <div v-if="!isPro && (!isLoading || !pending)" class="px-3 border-t border-b">
       <div class="bg-white/10 border-0">
         <div class="py-6 px-2">
           <div class="text-center text-sm mb-4 space-y-2">
-            <p>{{ user?.apiCount }} / {{ MAX_COUNT }} Free Generations</p>
+            <p>{{ user ? user.apiCount : 0 }} / {{ MAX_COUNT }} Free Generations</p>
             <!-- Progress -->
             <Progress v-model="progress" class="w-full" />
           </div>
@@ -51,6 +51,8 @@ const routes = ref(dashboardRoutes);
 const { data: user, pending } = await useFetch('/api/user', {
   key: 'userData',
 });
+const { data: isPro, pending: isLoading } = await useFetch('/api/stripe/checkStatus');
+
 const progress = computed(() => {
   if (user.value) {
     return (user.value.apiCount / MAX_COUNT) * 100;

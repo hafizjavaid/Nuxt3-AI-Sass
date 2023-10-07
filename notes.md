@@ -25,4 +25,5 @@
     6. Webhook login and Keys ( Run every time while development )
     7. User Stripe Status API
 
-9. Settings Page ( Integrate the last step API )
+9. Settings Page ( Integrate the last step API ) (Must activate Customer Portal Link)
+10. Don't show modal or counter or upgrade button in sidebar if we are already pro

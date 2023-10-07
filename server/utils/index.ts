@@ -76,3 +76,4 @@ export const stripe = new Stripe(config.stripeSecret, {
 export function absoluteUrl(path: string) {
     return `${config.appUrl}${path}`
 }
+

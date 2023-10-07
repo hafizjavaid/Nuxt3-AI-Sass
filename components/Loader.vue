@@ -3,7 +3,7 @@
     <div class="w-10 h-10 relative animate-spin">
       <img alt="Logo" src="/logo.svg" fill />
     </div>
-    <p v-if="processing" class="text-sm text-muted-foreground">Genius is processing...</p>
+    <p v-if="processing" class="text-sm text-muted-foreground">MultiGeniX is processing...</p>
   </div>
 </template>
 

@@ -8,7 +8,7 @@
             <div class="relative h-8 w-8 mr-4">
               <img class="object-cover" alt="Logo" src="/logo.svg" />
             </div>
-            <h1 class="text-2xl font-bold">Genius</h1>
+            <h1 class="text-2xl font-bold">MultiGeniX</h1>
           </NuxtLink>
           <div class="flex items-center gap-x-2">
             <NuxtLink :to="user ? '/dashboard' : '/auth'">

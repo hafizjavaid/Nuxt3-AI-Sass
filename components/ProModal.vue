@@ -4,7 +4,7 @@
       <DialogHeader>
         <DialogTitle class="flex justify-center items-center flex-col gap-y-4 pb-2">
           <div class="flex items-center gap-x-2 font-bold text-xl">
-            Upgrade to Genius
+            Upgrade to MultiGeniX
             <Badge variant="premium" class="uppercase text-sm py-1"> pro </Badge>
           </div>
         </DialogTitle>

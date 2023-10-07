@@ -76,4 +76,30 @@ export const stripe = new Stripe(config.stripeSecret, {
 export function absoluteUrl(path: string) {
     return `${config.appUrl}${path}`
 }
+const DAY_IN_MS = 86_400_000;
 
+export const checkSubscription = async (userId: string) => {
+    const userSubscription = await prisma.userSubscription.findUnique({
+        where: {
+            userId
+        },
+        select: {
+            stripeSubscriptionId: true,
+            stripeCurrentPeriodEnd: true,
+            stripeCustomerId: true,
+            stripePriceId: true
+        }
+    })
+
+    if (!userSubscription) {
+        return false;
+    }
+
+    const isValid =
+        userSubscription.stripePriceId &&
+        userSubscription.stripeCurrentPeriodEnd?.getTime()! + DAY_IN_MS > Date.now()
+
+
+    // For returning the boolean value 
+    return !!isValid;
+}

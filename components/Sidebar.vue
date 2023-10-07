@@ -25,7 +25,7 @@
       </div>
     </div>
     <!-- Free Counter -->
-    <div v-if="!isPro && (!isLoading || !pending)" class="px-3 border-t border-b">
+    <div v-if="!isPro" class="px-3 border-t border-b">
       <div class="bg-white/10 border-0">
         <div class="py-6 px-2">
           <div class="text-center text-sm mb-4 space-y-2">
